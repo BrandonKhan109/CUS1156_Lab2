@@ -1,3 +1,11 @@
+
+/* Project: Lab 2: Git
+* Class: UniqueWords.java
+* Author: Brandon Khan
+* Date: February 20th, 2024
+*  This program counts the number of distinct elements in an ArrayList<String>
+*/
+
 import java.util.ArrayList;
 
 public class UniqueWords
@@ -11,14 +19,20 @@ public class UniqueWords
    {
 	  int count = 0;
 	  
-      for (int i = 0; i < list.size(); i++)
-      {		 for (int j = 0; j < list.size(); j++)
-		 {
-			
-		 }
+	  for (int i = 0; i < list.size(); i++) {
+          boolean isUnique = true; 
+          for (int j = 0; j < i; j++) { // Check previous elements for duplicates
+              if (list.get(i).equals(list.get(j))) { // If duplicate found, set flag to false
+                  isUnique = false;
+                  break; 
+              }
+          }
+          if (isUnique) {
+              count++; 
+          }
       }
-	  return count;
-   }
+      return count;
+  }
 
    public static void main(String[] args)
    {
